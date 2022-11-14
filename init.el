@@ -135,8 +135,6 @@
 
 (use-package cider)
 
-;;(add-hook 'after-init-hook 'global-company-mode)
-
 (use-package company
   :init (global-company-mode)
   :custom
@@ -149,6 +147,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-show-quick-access t nil nil "Customized with use-package company")
  '(custom-safe-themes
    '("dc11cee30927281fe3f5c77372119d639e77e86aa794dce2a6ff019afdfbec9e" "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
  '(package-selected-packages
