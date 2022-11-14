@@ -30,7 +30,6 @@
 
 (global-display-line-numbers-mode t)
 
-
 (load-theme 'nyx t)
 
 (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 200)
