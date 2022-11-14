@@ -135,6 +135,15 @@
 
 (use-package cider)
 
+;;(add-hook 'after-init-hook 'global-company-mode)
+
+(use-package company
+  :init (global-company-mode)
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.1)
+  (company-show-numbers t))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
