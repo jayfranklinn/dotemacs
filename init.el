@@ -1,14 +1,25 @@
 ;;; package --- Summary
 ;;; Commentary:
 
-; init package sources
+;; init package sources
 (require 'package)
 (setq package-archives
       '(("org" . "https://orgmode.org/elpa/")
         ("melpa" . "http://melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")))
 
-; init packages
+;; local mirror archives
+;; (setq package-enable-at-startup nil)
+;; (setq package-archives
+;;       '(("org" . "~/.elpa-mirror/org/")
+;; 	("melpa" . "~/.elpa-mirror/melpa/")
+;; 	("gnu" . "~/.elpa-mirror/gnu/")))
+;; (setq configuration-layer--elpa-archives
+;;       '(("org" . "~/.elpa-mirror/org/")
+;; 	("melpa" . "~/.elpa-mirror/melpa/")
+;; 	("gnu" . "~/.elpa-mirror/gnu/")))
+
+;; init packages
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -20,7 +31,7 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-;;start-up/ui/theme/font
+;; start-up/ui/theme/font
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)
@@ -54,7 +65,7 @@
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
-; packages
+;; packages
 (use-package ivy
   :diminish
   :bind (:map ivy-minibuffer-map
