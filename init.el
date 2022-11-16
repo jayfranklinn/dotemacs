@@ -95,7 +95,7 @@
   :diminish which-key-mode
   :config (setq which-key-idle-delay 0.3))
 
-(package-install 'flycheck)
+(use-package flycheck)
 (global-flycheck-mode)
 
 (use-package evil
@@ -108,11 +108,9 @@
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
   (evil-global-set-key 'motion "j" 'evil-next-visual-line))
-
 (use-package evil-collection
   :after evil
   :config (evil-collection-init))
-
 (evil-set-undo-system 'undo-redo)
 
 (use-package projectile
@@ -125,7 +123,6 @@
   (when (file-directory-p "~/playground/")
     (setq projectile-project-search-path '("~/playground/")))
   (setq projectile-switch-project-action #'projectile-dired))
-
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
@@ -133,11 +130,9 @@
 (when (cl-find-if-not #'package-installed-p lsp-mode-packages)
   (package-refresh-contents)
   (mapc #'package-install lsp-mode-packages))
-
 (add-hook 'clojure-mode-hook 'lsp)
 (add-hook 'clojurescript-mode-hook 'lsp)
 (add-hook 'clojurec-mode-hook 'lsp)
-
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024)
       lsp-lens-enable t
