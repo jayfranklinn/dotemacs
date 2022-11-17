@@ -1,6 +1,7 @@
 ;;; package --- Summary
 ;;; Commentary:
 
+;;; Code:
 ;; init package sources
 (require 'package)
 (setq package-archives
@@ -43,12 +44,12 @@
 
 (load-theme 'nyx t)
 
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 200)
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 200) ;; 140 CS
 
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode t)
-  :custom ((doom-modeline-height 30)))
+  :custom ((doom-modeline-height 30)))  ;; 20 CS
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
