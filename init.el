@@ -32,7 +32,7 @@
 (eval-when-compile (require 'use-package))
 (setq use-package-always-ensure t)
 
-;; start-up/ui/theme/font
+;; misc
 (setq inhibit-startup-message t)
 
 (scroll-bar-mode -1)
@@ -54,7 +54,9 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
+
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
