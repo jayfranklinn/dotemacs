@@ -4,21 +4,23 @@
 ;;; Code:
 ;; init package sources
 (require 'package)
-(setq package-archives
-      '(("org" . "https://orgmode.org/elpa/")
-        ("melpa" . "http://melpa.org/packages/")
-        ("gnu" . "http://elpa.gnu.org/packages/")))
 
-;; local mirror archives
-;; (setq package-enable-at-startup nil)
-;; (setq package-archives
-;;       '(("org" . "~/.elpa-mirror/org/")
-;; 	("melpa" . "~/.elpa-mirror/melpa/")
-;; 	("gnu" . "~/.elpa-mirror/gnu/")))
-;; (setq configuration-layer--elpa-archives
-;;       '(("org" . "~/.elpa-mirror/org/")
-;; 	("melpa" . "~/.elpa-mirror/melpa/")
-;; 	("gnu" . "~/.elpa-mirror/gnu/")))
+(if (not (file-directory-p  "~/.elpa-mirror/"))
+
+    (setq package-archives
+	  '(("org" . "https://orgmode.org/elpa/")
+	    ("melpa" . "http://melpa.org/packages/")
+	    ("gnu" . "http://elpa.gnu.org/packages/")))
+
+  (setq package-enable-at-startup nil)
+  (setq package-archives
+	'(("org" . "~/.elpa-mirror/org/")
+	  ("melpa" . "~/.elpa-mirror/melpa/")
+	  ("gnu" . "~/.elpa-mirror/gnu/")))
+  (setq configuration-layer--elpa-archives
+	'(("org" . "~/.elpa-mirror/org/")
+	  ("melpa" . "~/.elpa-mirror/melpa/")
+	  ("gnu" . "~/.elpa-mirror/gnu/"))))
 
 ;; init packages
 (package-initialize)
