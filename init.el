@@ -46,12 +46,19 @@
 
 (load-theme 'nyx t)
 
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 200) ;; 140 CS
+(if (not (file-directory-p "~/.elpa-mirror/"))
+    (progn
+      (setq font-height 200)
+      (setq mode-line-height 30))
+  (progn
+    (setq font-height 140)
+    (setq mode-line-height 20)))
 
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height font-height)
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode t)
-  :custom ((doom-modeline-height 30)))  ;; 20 CS
+  :custom ((doom-modeline-height mode-line-height)))
 
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
@@ -152,16 +159,17 @@
   (company-idle-delay 0.1)
   (company-show-numbers t))
 
+(use-package restclient)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-show-quick-access t nil nil "Customized with use-package company")
  '(custom-safe-themes
    '("dc11cee30927281fe3f5c77372119d639e77e86aa794dce2a6ff019afdfbec9e" "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
  '(package-selected-packages
-   '(nyx-theme badwolf-theme clojure-mode flycheck lsp-mode cider evil-magit magit counsel-projectile projectile evil-collection evil counsel which-key rainbow-delimiters doom-modeline ivy use-package)))
+   '(restclient nyx-theme badwolf-theme clojure-mode flycheck lsp-mode cider evil-magit magit counsel-projectile projectile evil-collection evil counsel which-key rainbow-delimiters doom-modeline ivy use-package)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
