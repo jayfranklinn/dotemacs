@@ -163,6 +163,13 @@
 
 (use-package restclient)
 
+(use-package smartparens)
+(require 'smartparens-config)
+(add-hook 'smartparens-enabled-hook #'evil-smartparens-mode)
+(smartparens-global-mode t)
+(global-set-key (kbd "M-s k") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "M-s j") 'sp-forward-barf-sexp)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -172,7 +179,7 @@
  '(custom-safe-themes
    '("dc11cee30927281fe3f5c77372119d639e77e86aa794dce2a6ff019afdfbec9e" "16ab866312f1bd47d1304b303145f339eac46bbc8d655c9bfa423b957aa23cc9" default))
  '(package-selected-packages
-   '(restclient nyx-theme badwolf-theme clojure-mode flycheck lsp-mode cider evil-magit magit counsel-projectile projectile evil-collection evil counsel which-key rainbow-delimiters doom-modeline ivy use-package)))
+   '(smartparens evil-smartparens restclient nyx-theme badwolf-theme clojure-mode flycheck lsp-mode cider evil-magit magit counsel-projectile projectile evil-collection evil counsel which-key rainbow-delimiters doom-modeline ivy use-package)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
